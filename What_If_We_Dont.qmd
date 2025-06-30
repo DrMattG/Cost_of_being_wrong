@@ -6,7 +6,7 @@ editor: visual
 
 ## Background
 
-Systematic evidence synthesis has become a cornerstone of evidence-informed decision-making in environmental management. Approaches such as systematic reviews, meta-analyses, and evidence maps are increasingly used to aggregate, evaluate, and summarise research findings in a transparent and reproducible manner. These methods offer a robust antidote to confirmation bias, cherry-picking, and ad hoc reliance on expert opinion; issues that have long affected ecological decision-making.
+Systematic evidence synthesis has become a cornerstone of evidence-informed decision-making in environmental management. Approaches such as systematic reviews (including meta-analyses), and evidence maps are increasingly used to aggregate, evaluate, and summarise research findings in a transparent and reproducible manner. These methods offer a robust antidote to confirmation bias, cherry-picking, and *ad hoc* reliance on expert opinion; issues that have long affected ecological decision-making.
 
 However, systematic reviews are not without criticism. A commonly raised concern is that they are *slow, resource-intensive*, and often *outdated by the time they are published*, particularly in fast-moving fields. Others argue that systematic reviews are often *narrow in scope*, providing answers to tightly defined questions while offering limited flexibility to explore related or emerging issues. These critiques have prompted calls for more agile forms of synthesis, such as *living reviews*, which aim to update findings as new evidence accumulates.
 
