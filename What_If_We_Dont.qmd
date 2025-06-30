@@ -1,0 +1,34 @@
+---
+title: "What If We Don’t? The Consequences of Skipping Evidence Synthesis in Environmental Decisions"
+format: html
+editor: visual
+---
+
+## Background
+
+Systematic evidence synthesis has become a cornerstone of evidence-informed decision-making in environmental management. Approaches such as systematic reviews, meta-analyses, and evidence maps are increasingly used to aggregate, evaluate, and summarise research findings in a transparent and reproducible manner. These methods offer a robust antidote to confirmation bias, cherry-picking, and ad hoc reliance on expert opinion; issues that have long affected ecological decision-making.
+
+However, systematic reviews are not without criticism. A commonly raised concern is that they are *slow, resource-intensive*, and often *outdated by the time they are published*, particularly in fast-moving fields. Others argue that systematic reviews are often *narrow in scope*, providing answers to tightly defined questions while offering limited flexibility to explore related or emerging issues. These critiques have prompted calls for more agile forms of synthesis, such as *living reviews*, which aim to update findings as new evidence accumulates.
+
+A deeper concern, however, lies not in the cost of evidence synthesis—but in the *cost of omitting it*. In much of the current discourse, the *counterfactual scenario*—what happens when decisions are made without synthesis—is largely absent. This omission implicitly assumes that the alternative to systematic synthesis is neutral, or at least good enough. In reality,  decisions made without structured evidence synthesis are frequently based on incomplete literature scans, selective citation, or expert opinion, each of which carries its own biases and limitations.
+
+The consequences of poorly informed decisions can be severe. In conservation, acting on partial or biased evidence can result in ineffective or even harmful interventions, wasted resources, missed opportunities, and long-term damage to ecosystems and public trust. These consequences are not always immediate or visible, but they are real—and they are rarely weighed against the up-front cost of synthesis.
+
+This disconnect mirrors ongoing debates in statistics and decision science, where increasing attention has been paid to *justifying analytical rigour based on the risks of being wrong*. For example, the “justify your alpha” movement argues that significance thresholds (e.g. p = 0.05) should not be treated as fixed conventions but instead adjusted based on the potential consequences of Type I and II errors. By analogy, the effort expended on evidence synthesis should be *proportional to the consequences of making the wrong decision*.
+
+Despite this logic, environmental sciences lacks a formal framework to weigh the *cost of synthesis* against the *cost of error*. There are few empirical studies, simulations, or decision-theoretic tools that explicitly address this trade-off. As a result, the value of synthesis is often discussed abstractly or defensively—responding to concerns about cost or speed—rather than proactively framed as a decision support investment with measurable returns.
+
+This project aims to help fill that gap. We propose a structured investigation of the consequences of omitting systematic evidence synthesis in environmental decision-making, through a combination of retrospective case studies and simulation-based decision modeling. By comparing outcomes and error risks across different levels of evidence use, we aim to demonstrate when and why synthesis is not just desirable but essential—and how decision-makers can be more strategic in allocating effort to synthesis depending on context, uncertainty, and risk.
+
+### Expected Value of Information (EVI)
+
+The **Expected Value of Information (EVI)** is a decision-analytic concept used to estimate whether the benefits of reducing uncertainty through additional information (e.g., a systematic review) outweigh the costs of obtaining that information. In environmental contexts, where decisions often involve uncertainty, irreversible consequences, and limited resources, EVI provides a structured way to justify investment in evidence synthesis.
+
+At its simplest, the EVI can be expressed as:
+$$
+{EVI} = P(\text{wrong decision}) * (\text{cost of being wrong})
+$$
+This formula reflects the expected loss associated with acting under uncertainty. If the probability of making a wrong decision is high and the cost of being wrong (e.g., ecological damage, financial loss, reputational harm) is substantial, then the EVI will be large—implying that the value of improved information (through a synthesis or study) is also large. Conversely, when uncertainty is low or the stakes are minor, a decision can proceed without additional information.
+
+EVI helps shift the narrative from “systematic reviews are expensive” to “what is the cost of *not* knowing enough before acting?”—placing evidence synthesis in the broader context of risk management and decision quality.
+
