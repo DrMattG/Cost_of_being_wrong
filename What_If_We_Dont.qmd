@@ -37,7 +37,19 @@ The second work package (WP2) develops a simulation framework to evaluate decisi
 
 The third work package (WP3) focuses on translating evidence synthesis outputs into decision-relevant inputs. This includes mapping effect sizes to probabilities, incorporating uncertainty distributions, adjusting for risk of bias, and accounting for heterogeneity. These components will be integrated into established decision frameworks such as Bayesian decision networks, multi-criteria decision analysis, and cost-effectiveness models.
 
-The fourth work package (WP4) extends the concept of Expected Value of Information to evidence synthesis. Building on the formulation of expected value as the product of the probability of a wrong decision and the cost of that error, the project will incorporate additional elements such as the cost of conducting synthesis, the reduction in uncertainty achieved through synthesis, and the reversibility of decisions. This will result in a practical framework for evaluating whether the benefits of synthesis justify its costs.
+The fourth work package (WP4) extends the concept of Expected Value of Information to evidence synthesis by introducing the Expected Value of Evidence Synthesis (EVES). Building on the formulation of expected value as the product of the probability of a wrong decision and the cost of that error, the project will incorporate additional elements, including the cost of conducting synthesis, the reduction in uncertainty achieved through synthesis, and the reversibility of decisions. This will result in a practical and generalisable framework for evaluating whether the benefits of evidence synthesis justify its costs in specific decision contexts.
+
+The EVES is defined as:
+
+$$
+EVES = E[Loss \mid \text{no synthesis}] - E[Loss \mid \text{synthesis}] - C_{\text{synthesis}}
+$$
+
+where:
+
+-   $\mathbb{E}[Loss \mid \text{no synthesis}]$ is the expected loss when decisions are based on unsystematic evidence\
+-   $\mathbb{E}[Loss \mid \text{synthesis}]$ is the expected loss when decisions are informed by systematic evidence synthesis\
+-   $C_{\text{synthesis}}$ is the cost of conducting the synthesis
 
 The fifth work package (WP5) involves the development of a prototype decision-support tool. This tool will allow users to define a decision context, specify evidence availability and uncertainty, and obtain estimates of expected decision error and the value of conducting evidence synthesis. The tool will be implemented using open-source technologies to ensure transparency and reproducibility.
 
@@ -71,7 +83,7 @@ The outputs of the project, including methodological frameworks, simulation mode
 
 All outputs will be developed in accordance with open science principles. Code, simulation frameworks, and tools will be made openly available, ensuring reproducibility and enabling reuse by other researchers. This will facilitate further development and application of the methods beyond the scope of the project.
 
-## Potential for societal impact of the research project 
+## Potential for societal impact of the research project
 
 The project has clear relevance to environmental policy and management, where decisions are frequently made under conditions of uncertainty and limited resources. By providing tools to evaluate when evidence synthesis is worth undertaking, the project supports more efficient allocation of resources and reduces the risk of ineffective or harmful interventions.
 
@@ -98,3 +110,140 @@ The project will be organised around the five work packages described above, wit
 Regular project meetings will ensure coordination and integration across work packages. The project will make use of existing research infrastructure, including computational resources for simulation and established platforms for code sharing and collaboration.
 
 The overall management structure will ensure that the project remains aligned with its objectives while maintaining flexibility to adapt to new insights and opportunities.
+
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+#| fig-cap: "Figure 1. Decision-theoretic framework for evaluating the value of evidence synthesis. Alternative evidence-use strategies generate different belief states about intervention effects, characterised by varying levels of bias and uncertainty. These belief states propagate through decision models to influence the probability of incorrect decisions and their associated costs. The expected value of evidence synthesis (EVES) is defined as the reduction in expected loss obtained by replacing unsystematic evidence use with systematic synthesis, minus the cost of synthesis"
+
+library(DiagrammeR)
+
+grViz("
+digraph synthesis_value_framework {
+
+  graph [
+    layout = dot,
+    rankdir = TB,
+    fontsize = 12,
+    labelloc = 't',
+    label = 'What If We Don\\'t? The Value of Evidence Synthesis in Environmental Decisions',
+    splines = true,
+    nodesep = 0.35,
+    ranksep = 0.55
+  ]
+
+  node [
+    shape = box,
+    style = 'rounded,filled',
+    fontname = Helvetica,
+    fontsize = 11,
+    color = '#444444',
+    fillcolor = '#F7F7F7'
+  ]
+
+  edge [
+    fontname = Helvetica,
+    fontsize = 10,
+    color = '#555555',
+    arrowsize = 0.8
+  ]
+
+  # --- Top: decision context ---
+  decision_problem [
+    label = 'Environmental decision problem\\n(e.g., implement intervention X?)',
+    fillcolor = '#EFEFEF',
+    penwidth = 1.2
+  ]
+
+  # --- Two pathways (clusters) ---
+  subgraph cluster_nosynth {
+    label = 'Path A: No (systematic) synthesis';
+    fontsize = 11;
+    fontname = Helvetica;
+    color = '#D9A6A6';
+    style = 'rounded';
+
+    nosynth_inputs [
+      label = 'Evidence use without synthesis\\n• incomplete scan\\n• selective citation\\n• expert judgement',
+      fillcolor = '#FFF1F1'
+    ]
+
+    nosynth_estimates [
+      label = 'Effect estimate / belief state\\nHigher bias + noise',
+      fillcolor = '#FFF1F1'
+    ]
+
+    nosynth_uncertainty [
+      label = 'Decision-relevant uncertainty\\nHigher variance\\nLower calibration',
+      fillcolor = '#FFF1F1'
+    ]
+
+    nosynth_decision [
+      label = 'Decision choice\\nHigher P(wrong decision)',
+      fillcolor = '#FFF1F1'
+    ]
+  }
+
+  subgraph cluster_synth {
+    label = 'Path B: Systematic evidence synthesis';
+    fontsize = 11;
+    fontname = Helvetica;
+    color = '#A6BFD9';
+    style = 'rounded';
+
+    synth_inputs [
+      label = 'Systematic evidence synthesis\\n• systematic review / map\\n• meta-analysis\\n• risk of bias / appraisal',
+      fillcolor = '#F1F7FF'
+    ]
+
+    synth_estimates [
+      label = 'Effect estimate / belief state\\nLess biased, more precise',
+      fillcolor = '#F1F7FF'
+    ]
+
+    synth_uncertainty [
+      label = 'Decision-relevant uncertainty\\nReduced variance\\nBetter calibration',
+      fillcolor = '#F1F7FF'
+    ]
+
+    synth_decision [
+      label = 'Decision choice\\nLower P(wrong decision)',
+      fillcolor = '#F1F7FF'
+    ]
+  }
+
+  # --- Outcomes ---
+  outcomes [
+    label = 'Outcomes realised\\nEcological + socio-economic consequences\\n(Expected loss differs between paths)',
+    fillcolor = '#EFEFEF',
+    penwidth = 1.2
+  ]
+
+  # --- Value of information / synthesis ---
+  evi [
+    label = 'Value of evidence synthesis (VOI / EVI)\\nEVI = E[Loss | No synthesis] − E[Loss | Synthesis] − Cost(synthesis)',
+    fillcolor = '#F5F5F5',
+    penwidth = 1.2
+  ]
+
+  # --- Flow ---
+  decision_problem -> nosynth_inputs
+  decision_problem -> synth_inputs
+
+  nosynth_inputs -> nosynth_estimates -> nosynth_uncertainty -> nosynth_decision -> outcomes
+  synth_inputs   -> synth_estimates   -> synth_uncertainty   -> synth_decision   -> outcomes
+
+  outcomes -> evi
+
+  # --- Align layers ---
+  { rank = same; nosynth_inputs; synth_inputs }
+  { rank = same; nosynth_estimates; synth_estimates }
+  { rank = same; nosynth_uncertainty; synth_uncertainty }
+  { rank = same; nosynth_decision; synth_decision }
+
+}
+")
+```
+
+# Literature cited

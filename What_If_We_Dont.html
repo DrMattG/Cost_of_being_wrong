@@ -55,7 +55,46 @@ div.csl-indent {
 <script src="What_If_We_Dont_files/libs/bootstrap/bootstrap.min.js"></script>
 <link href="What_If_We_Dont_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="What_If_We_Dont_files/libs/bootstrap/bootstrap-9e3ffae467580fdb927a41352e75a2e0.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="What_If_We_Dont_files/libs/htmltools-fill-0.5.8.1/fill.css" rel="stylesheet">
 
+<script src="What_If_We_Dont_files/libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
+
+<script src="What_If_We_Dont_files/libs/viz-1.8.2/viz.js"></script>
+
+<link href="What_If_We_Dont_files/libs/DiagrammeR-styles-0.2/styles.css" rel="stylesheet">
+
+<script src="What_If_We_Dont_files/libs/grViz-binding-1.0.11/grViz.js"></script>
+
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -104,7 +143,19 @@ div.csl-indent {
 <p>The research is organised into five interlinked work packages. The first work package (WP1) focuses on empirical analysis of evidence use in environmental decision-making. It will identify a set of real-world case studies, including decisions related to invasive species management, wildlife harvest, and ecological restoration. For each case, the project will reconstruct the decision context, the available evidence base, and the evidence actually used. By comparing decisions informed by systematic synthesis with those based on partial or selective evidence, this work package will generate empirical estimates of decision bias and error.</p>
 <p>The second work package (WP2) develops a simulation framework to evaluate decision outcomes under controlled conditions. The simulations will vary key parameters, including evidence availability, the presence of bias such as publication bias, the degree of heterogeneity among studies, and the stakes associated with decisions. Different evidence-use strategies, ranging from expert judgement and narrative review to systematic review and meta-analysis, will be compared in terms of their ability to support accurate decisions.</p>
 <p>The third work package (WP3) focuses on translating evidence synthesis outputs into decision-relevant inputs. This includes mapping effect sizes to probabilities, incorporating uncertainty distributions, adjusting for risk of bias, and accounting for heterogeneity. These components will be integrated into established decision frameworks such as Bayesian decision networks, multi-criteria decision analysis, and cost-effectiveness models.</p>
-<p>The fourth work package (WP4) extends the concept of Expected Value of Information to evidence synthesis. Building on the formulation of expected value as the product of the probability of a wrong decision and the cost of that error, the project will incorporate additional elements such as the cost of conducting synthesis, the reduction in uncertainty achieved through synthesis, and the reversibility of decisions. This will result in a practical framework for evaluating whether the benefits of synthesis justify its costs.</p>
+<p>The fourth work package (WP4) extends the concept of Expected Value of Information to evidence synthesis by introducing the Expected Value of Evidence Synthesis (EVES). Building on the formulation of expected value as the product of the probability of a wrong decision and the cost of that error, the project will incorporate additional elements, including the cost of conducting synthesis, the reduction in uncertainty achieved through synthesis, and the reversibility of decisions. This will result in a practical and generalisable framework for evaluating whether the benefits of evidence synthesis justify its costs in specific decision contexts.</p>
+<p>The EVES is defined as:</p>
+<p><span class="math display">\[
+EVES = E[Loss \mid \text{no synthesis}] - E[Loss \mid \text{synthesis}] - C_{\text{synthesis}}
+\]</span></p>
+<p>where:</p>
+<ul>
+<li><span class="math inline">\(\mathbb{E}[Loss \mid \text{no synthesis}]\)</span> is the expected loss when decisions are based on unsystematic evidence<br>
+</li>
+<li><span class="math inline">\(\mathbb{E}[Loss \mid \text{synthesis}]\)</span> is the expected loss when decisions are informed by systematic evidence synthesis<br>
+</li>
+<li><span class="math inline">\(C_{\text{synthesis}}\)</span> is the cost of conducting the synthesis</li>
+</ul>
 <p>The fifth work package (WP5) involves the development of a prototype decision-support tool. This tool will allow users to define a decision context, specify evidence availability and uncertainty, and obtain estimates of expected decision error and the value of conducting evidence synthesis. The tool will be implemented using open-source technologies to ensure transparency and reproducibility.</p>
 <p>The project is inherently interdisciplinary, combining methods from ecology, statistics, and decision science. Potential risks include conceptual complexity and challenges in generalisation. These risks will be mitigated by grounding the research in empirical case studies, using simulation to explore a wide range of scenarios, and developing a practical tool that translates complex concepts into accessible outputs.</p>
 </section>
@@ -153,11 +204,21 @@ div.csl-indent {
 <p>The project will be organised around the five work packages described above, with clear allocation of responsibilities and timelines across a four-year period. The work packages are interdependent, with outputs from empirical analysis informing simulation modelling, which in turn supports the development of decision frameworks and tools.</p>
 <p>Regular project meetings will ensure coordination and integration across work packages. The project will make use of existing research infrastructure, including computational resources for simulation and established platforms for code sharing and collaboration.</p>
 <p>The overall management structure will ensure that the project remains aligned with its objectives while maintaining flexibility to adapt to new insights and opportunities.</p>
-
+<div class="cell">
+<div class="cell-output-display">
+<div class="grViz html-widget html-fill-item" id="htmlwidget-c3c2159a143b2404101d" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-c3c2159a143b2404101d">{"x":{"diagram":"\ndigraph synthesis_value_framework {\n\n  graph [\n    layout = dot,\n    rankdir = TB,\n    fontsize = 12,\n    labelloc = \"t\",\n    label = \"What If We Don\\\"t? The Value of Evidence Synthesis in Environmental Decisions\",\n    splines = true,\n    nodesep = 0.35,\n    ranksep = 0.55\n  ]\n\n  node [\n    shape = box,\n    style = \"rounded,filled\",\n    fontname = Helvetica,\n    fontsize = 11,\n    color = \"#444444\",\n    fillcolor = \"#F7F7F7\"\n  ]\n\n  edge [\n    fontname = Helvetica,\n    fontsize = 10,\n    color = \"#555555\",\n    arrowsize = 0.8\n  ]\n\n  # --- Top: decision context ---\n  decision_problem [\n    label = \"Environmental decision problem\\n(e.g., implement intervention X?)\",\n    fillcolor = \"#EFEFEF\",\n    penwidth = 1.2\n  ]\n\n  # --- Two pathways (clusters) ---\n  subgraph cluster_nosynth {\n    label = \"Path A: No (systematic) synthesis\";\n    fontsize = 11;\n    fontname = Helvetica;\n    color = \"#D9A6A6\";\n    style = \"rounded\";\n\n    nosynth_inputs [\n      label = \"Evidence use without synthesis\\n• incomplete scan\\n• selective citation\\n• expert judgement\",\n      fillcolor = \"#FFF1F1\"\n    ]\n\n    nosynth_estimates [\n      label = \"Effect estimate / belief state\\nHigher bias + noise\",\n      fillcolor = \"#FFF1F1\"\n    ]\n\n    nosynth_uncertainty [\n      label = \"Decision-relevant uncertainty\\nHigher variance\\nLower calibration\",\n      fillcolor = \"#FFF1F1\"\n    ]\n\n    nosynth_decision [\n      label = \"Decision choice\\nHigher P(wrong decision)\",\n      fillcolor = \"#FFF1F1\"\n    ]\n  }\n\n  subgraph cluster_synth {\n    label = \"Path B: Systematic evidence synthesis\";\n    fontsize = 11;\n    fontname = Helvetica;\n    color = \"#A6BFD9\";\n    style = \"rounded\";\n\n    synth_inputs [\n      label = \"Systematic evidence synthesis\\n• systematic review / map\\n• meta-analysis\\n• risk of bias / appraisal\",\n      fillcolor = \"#F1F7FF\"\n    ]\n\n    synth_estimates [\n      label = \"Effect estimate / belief state\\nLess biased, more precise\",\n      fillcolor = \"#F1F7FF\"\n    ]\n\n    synth_uncertainty [\n      label = \"Decision-relevant uncertainty\\nReduced variance\\nBetter calibration\",\n      fillcolor = \"#F1F7FF\"\n    ]\n\n    synth_decision [\n      label = \"Decision choice\\nLower P(wrong decision)\",\n      fillcolor = \"#F1F7FF\"\n    ]\n  }\n\n  # --- Outcomes ---\n  outcomes [\n    label = \"Outcomes realised\\nEcological + socio-economic consequences\\n(Expected loss differs between paths)\",\n    fillcolor = \"#EFEFEF\",\n    penwidth = 1.2\n  ]\n\n  # --- Value of information / synthesis ---\n  evi [\n    label = \"Value of evidence synthesis (VOI / EVI)\\nEVI = E[Loss | No synthesis] − E[Loss | Synthesis] − Cost(synthesis)\",\n    fillcolor = \"#F5F5F5\",\n    penwidth = 1.2\n  ]\n\n  # --- Flow ---\n  decision_problem -> nosynth_inputs\n  decision_problem -> synth_inputs\n\n  nosynth_inputs -> nosynth_estimates -> nosynth_uncertainty -> nosynth_decision -> outcomes\n  synth_inputs   -> synth_estimates   -> synth_uncertainty   -> synth_decision   -> outcomes\n\n  outcomes -> evi\n\n  # --- Align layers ---\n  { rank = same; nosynth_inputs; synth_inputs }\n  { rank = same; nosynth_estimates; synth_estimates }\n  { rank = same; nosynth_uncertainty; synth_uncertainty }\n  { rank = same; nosynth_decision; synth_decision }\n\n}\n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<p>Figure 1. Decision-theoretic framework for evaluating the value of evidence synthesis. Alternative evidence-use strategies generate different belief states about intervention effects, characterised by varying levels of bias and uncertainty. These belief states propagate through decision models to influence the probability of incorrect decisions and their associated costs. The expected value of evidence synthesis (EVES) is defined as the reduction in expected loss obtained by replacing unsystematic evidence use with systematic synthesis, minus the cost of synthesis</p>
+</div>
+</div>
 </section>
 </section>
+<section id="literature-cited" class="level1 unnumbered" data-number="4">
 
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+
+</section>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">4 Literature cited</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
 <div id="ref-cook2013" class="csl-entry" role="listitem">
 Cook, Carly N., Hugh P. Possingham, and Richard A. Fuller. 2013. <span>“Contribution of Systematic Reviews to Management Decisions.”</span> <em>Conservation Biology</em> 27 (5): 902–15. <a href="https://doi.org/10.1111/cobi.12114">https://doi.org/10.1111/cobi.12114</a>.
 </div>
