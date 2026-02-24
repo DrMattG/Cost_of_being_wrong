@@ -1,34 +1,100 @@
 ---
-title: "What If We Don’t? The Consequences of Skipping Evidence Synthesis in Environmental Decisions"
+title: "What If We Don’t?"
+subtitle: "The Consequences of Skipping Evidence Synthesis in Environmental Decisions"
 format: html
+number-sections: true
 editor: visual
+bibliography: references.bib
 ---
 
-## Background
+# Excellence
 
-Systematic evidence synthesis has become a cornerstone of evidence-informed decision-making in environmental management. Approaches such as systematic reviews (including meta-analyses), and evidence maps are increasingly used to aggregate, evaluate, and summarise research findings in a transparent and reproducible manner. These methods offer a robust antidote to confirmation bias, cherry-picking, and *ad hoc* reliance on expert opinion; issues that have long affected ecological decision-making.
+## State of the Art and Knowledge Gaps
 
-However, systematic reviews are not without criticism. A commonly raised concern is that they are *slow, resource-intensive*, and often *outdated by the time they are published*, particularly in fast-moving fields. Others argue that systematic reviews are often *narrow in scope*, providing answers to tightly defined questions while offering limited flexibility to explore related or emerging issues. These critiques have prompted calls for more agile forms of synthesis, such as *living reviews*, which aim to update findings as new evidence accumulates.
+Environmental decision-making increasingly emphasises the use of structured, transparent, and reproducible evidence. Over the past two decades, systematic reviews, meta-analyses, and evidence maps have become established as core tools for synthesising research in ecology and conservation [@pullin2006]. These approaches aim to reduce bias, improve transparency [@pullin2009], and support generalisable inference across heterogeneous and context-dependent studies. As a result, systematic evidence synthesis is now widely promoted as a cornerstone of evidence-informed environmental policy and management.
 
-A deeper concern, however, lies not in the cost of evidence synthesis—but in the *cost of omitting it*. In much of the current discourse, the *counterfactual scenario*—what happens when decisions are made without synthesis—is largely absent. This omission implicitly assumes that the alternative to systematic synthesis is neutral, or at least good enough. In reality,  decisions made without structured evidence synthesis are frequently based on incomplete literature scans, selective citation, or expert opinion, each of which carries its own biases and limitations.
+Despite this progress, systematic reviews remain subject to persistent critique. They are frequently characterised as slow, resource-intensive, and overly narrow in scope, particularly in fast-moving policy contexts. These concerns have driven the development of alternative approaches, including rapid reviews and living systematic reviews, which seek to improve timeliness and flexibility. While these innovations are valuable, they largely operate within an implicit assumption that the alternative to systematic synthesis is acceptable or at least neutral.
 
-The consequences of poorly informed decisions can be severe. In conservation, acting on partial or biased evidence can result in ineffective or even harmful interventions, wasted resources, missed opportunities, and long-term damage to ecosystems and public trust. These consequences are not always immediate or visible, but they are real—and they are rarely weighed against the up-front cost of synthesis.
+This assumption is rarely examined. In practice, decisions made without systematic evidence synthesis are typically informed by incomplete literature searches, selective citation, or expert judgement. These approaches are vulnerable to well-established cognitive and structural biases, including confirmation bias, availability bias, and selective reporting [@stewart2009]. In environmental contexts, such biases can have substantial consequences. Decisions based on incomplete or distorted evidence may lead to ineffective or even harmful interventions, inefficient allocation of limited resources, missed opportunities for conservation, and erosion of public trust. These consequences are often diffuse, delayed, and difficult to attribute, which has contributed to their limited empirical evaluation.
 
-This disconnect mirrors ongoing debates in statistics and decision science, where increasing attention has been paid to *justifying analytical rigour based on the risks of being wrong*. For example, the “justify your alpha” movement argues that significance thresholds (e.g. p = 0.05) should not be treated as fixed conventions but instead adjusted based on the potential consequences of Type I and II errors. By analogy, the effort expended on evidence synthesis should be *proportional to the consequences of making the wrong decision*.
+In contrast, other disciplines have increasingly emphasised the importance of justifying methodological rigour based on the consequences of error. In statistics, for example, there is growing recognition that analytical thresholds should reflect the relative costs of Type I and Type II errors rather than rely on fixed conventions [@lakens2018]. This perspective highlights a broader principle: the level of analytical effort should be proportional to the risks associated with being wrong.
 
-Despite this logic, environmental sciences lacks a formal framework to weigh the *cost of synthesis* against the *cost of error*. There are few empirical studies, simulations, or decision-theoretic tools that explicitly address this trade-off. As a result, the value of synthesis is often discussed abstractly or defensively—responding to concerns about cost or speed—rather than proactively framed as a decision support investment with measurable returns.
+A similar principle applies to evidence synthesis. The effort required to conduct a systematic review or meta-analysis should be weighed against the potential consequences of making an incorrect decision without such synthesis. However, environmental science currently lacks a formal framework for making this comparison [@nichols2017]. There is little empirical evidence quantifying the probability of incorrect decisions under different evidence-use strategies, and even less work linking these probabilities to the costs of decision outcomes. As a result, the value of evidence synthesis is often discussed in abstract terms or framed defensively in response to concerns about cost and timeliness, rather than proactively evaluated as an investment in decision quality.
 
-This project aims to help fill that gap. We propose a structured investigation of the consequences of omitting systematic evidence synthesis in environmental decision-making, through a combination of retrospective case studies and simulation-based decision modeling. By comparing outcomes and error risks across different levels of evidence use, we aim to demonstrate when and why synthesis is not just desirable but essential—and how decision-makers can be more strategic in allocating effort to synthesis depending on context, uncertainty, and risk.
+Although previous work has explored the integration of evidence synthesis with decision-making [@cook2013], particularly through Bayesian approaches [@stewart2013] and adaptive management, these efforts are typically case-specific and do not provide generalisable or operational guidance. Evidence synthesis outputs are rarely translated into decision-relevant inputs in a systematic way, and there is no widely adopted framework for assessing when synthesis is necessary, optional, or inefficient.
 
-### Expected Value of Information (EVI)
+The central gap addressed by this project is therefore the absence of a generalisable, decision-theoretic framework for quantifying the value of systematic evidence synthesis in environmental decision-making.
 
-The **Expected Value of Information (EVI)** is a decision-analytic concept used to estimate whether the benefits of reducing uncertainty through additional information (e.g., a systematic review) outweigh the costs of obtaining that information. In environmental contexts, where decisions often involve uncertainty, irreversible consequences, and limited resources, EVI provides a structured way to justify investment in evidence synthesis.
+## Research questions and hypotheses, theoretical approach and methodology
 
-At its simplest, the EVI can be expressed as:
-$$
-{EVI} = P(\text{wrong decision}) * (\text{cost of being wrong})
-$$
-This formula reflects the expected loss associated with acting under uncertainty. If the probability of making a wrong decision is high and the cost of being wrong (e.g., ecological damage, financial loss, reputational harm) is substantial, then the EVI will be large—implying that the value of improved information (through a synthesis or study) is also large. Conversely, when uncertainty is low or the stakes are minor, a decision can proceed without additional information.
+The project is structured around five interrelated research questions. First, it asks what consequences arise when systematic evidence synthesis is omitted in environmental decision-making. Second, it examines how different evidence-use strategies influence decision accuracy and outcomes. Third, it investigates how outputs from evidence synthesis can be translated into decision-relevant inputs. Fourth, it evaluates under what conditions the value of evidence synthesis exceeds its cost. Finally, it explores how decision-makers can be supported in determining when synthesis is worth undertaking.
 
-EVI helps shift the narrative from “systematic reviews are expensive” to “what is the cost of *not* knowing enough before acting?”—placing evidence synthesis in the broader context of risk management and decision quality.
+The theoretical foundation of the project lies at the intersection of evidence synthesis and decision theory. Evidence synthesis provides structured estimates of effect sizes, uncertainty, and bias, while decision theory provides a framework for evaluating choices under uncertainty. The project integrates these perspectives by treating synthesis outputs as probabilistic inputs into decision models and by evaluating their contribution to reducing decision error.
 
+The research is organised into five interlinked work packages. The first work package (WP1) focuses on empirical analysis of evidence use in environmental decision-making. It will identify a set of real-world case studies, including decisions related to invasive species management, wildlife harvest, and ecological restoration. For each case, the project will reconstruct the decision context, the available evidence base, and the evidence actually used. By comparing decisions informed by systematic synthesis with those based on partial or selective evidence, this work package will generate empirical estimates of decision bias and error.
+
+The second work package (WP2) develops a simulation framework to evaluate decision outcomes under controlled conditions. The simulations will vary key parameters, including evidence availability, the presence of bias such as publication bias, the degree of heterogeneity among studies, and the stakes associated with decisions. Different evidence-use strategies, ranging from expert judgement and narrative review to systematic review and meta-analysis, will be compared in terms of their ability to support accurate decisions.
+
+The third work package (WP3) focuses on translating evidence synthesis outputs into decision-relevant inputs. This includes mapping effect sizes to probabilities, incorporating uncertainty distributions, adjusting for risk of bias, and accounting for heterogeneity. These components will be integrated into established decision frameworks such as Bayesian decision networks, multi-criteria decision analysis, and cost-effectiveness models.
+
+The fourth work package (WP4) extends the concept of Expected Value of Information to evidence synthesis. Building on the formulation of expected value as the product of the probability of a wrong decision and the cost of that error, the project will incorporate additional elements such as the cost of conducting synthesis, the reduction in uncertainty achieved through synthesis, and the reversibility of decisions. This will result in a practical framework for evaluating whether the benefits of synthesis justify its costs.
+
+The fifth work package (WP5) involves the development of a prototype decision-support tool. This tool will allow users to define a decision context, specify evidence availability and uncertainty, and obtain estimates of expected decision error and the value of conducting evidence synthesis. The tool will be implemented using open-source technologies to ensure transparency and reproducibility.
+
+The project is inherently interdisciplinary, combining methods from ecology, statistics, and decision science. Potential risks include conceptual complexity and challenges in generalisation. These risks will be mitigated by grounding the research in empirical case studies, using simulation to explore a wide range of scenarios, and developing a practical tool that translates complex concepts into accessible outputs.
+
+## Ethical issues
+
+The project does not involve human participants, animal experimentation, or sensitive personal data. Ethical considerations are therefore limited but not absent. The primary ethical responsibility lies in ensuring transparency, reproducibility, and integrity in the development and communication of methods and results.
+
+All data used in the project will be derived from published studies or generated through simulation. Where existing datasets are used, appropriate citation and data-use agreements will be respected. The project will adhere to open science principles, including the sharing of code and data where possible, while ensuring that any restrictions associated with source data are respected.
+
+A further ethical consideration relates to the potential influence of the project on decision-making. The decision-support tools developed will be designed to support, rather than replace, expert judgement, and will clearly communicate uncertainty and limitations to avoid misuse or overconfidence in model outputs.
+
+## Novelty and Ambition
+
+This project represents a fundamental shift in how evidence synthesis is conceptualised and evaluated within environmental science. Rather than focusing on improving the efficiency or technical sophistication of synthesis methods, it addresses a more foundational question: when is evidence synthesis necessary, and what are the consequences of not conducting it?
+
+The project is innovative in its explicit integration of evidence synthesis and decision theory. While the importance of linking evidence to decisions is widely acknowledged, this connection is rarely formalised. The proposed research develops a structured interface between meta-analytic outputs and probabilistic decision models, enabling effect sizes to be interpreted as probabilities, uncertainty to be propagated through decision processes, and heterogeneity to be explicitly represented in decision outcomes. In doing so, it provides a coherent framework for translating synthesis results into decision-relevant information.
+
+A further innovation lies in the development of a generalisable framework rather than a series of isolated case studies. By combining empirical analyses with simulation modelling and decision-theoretic approaches, the project aims to produce transferable tools and principles that can be applied across a wide range of environmental contexts. This is complemented by the operationalisation of Value of Information concepts, which will provide a quantitative basis for evaluating the return on investment in evidence synthesis.
+
+The ambition of the project lies in its potential to reshape how evidence synthesis is justified and prioritised. By reframing synthesis as an investment in decision quality rather than a methodological ideal, it has the potential to influence both scientific practice and policy processes.
+
+# Impact
+
+## Potential for academic impact of the research project
+
+The project addresses a fundamental gap at the intersection of evidence synthesis and decision science. By developing a formal framework for quantifying the value of evidence synthesis, it has the potential to establish a new research direction within environmental science.
+
+The outputs of the project, including methodological frameworks, simulation models, and decision-support tools, will provide a foundation for future research on uncertainty, bias, and decision-making. The project will also contribute to advancing the theoretical integration of meta-analysis and decision theory, an area that remains underdeveloped despite its importance.
+
+All outputs will be developed in accordance with open science principles. Code, simulation frameworks, and tools will be made openly available, ensuring reproducibility and enabling reuse by other researchers. This will facilitate further development and application of the methods beyond the scope of the project.
+
+## Potential for societal impact of the research project 
+
+The project has clear relevance to environmental policy and management, where decisions are frequently made under conditions of uncertainty and limited resources. By providing tools to evaluate when evidence synthesis is worth undertaking, the project supports more efficient allocation of resources and reduces the risk of ineffective or harmful interventions.
+
+The outputs have the potential to contribute to improved environmental decision-making in areas such as biodiversity conservation, climate adaptation, and ecosystem management. In doing so, the project aligns with several United Nations Sustainable Development Goals, particularly those related to climate action and life on land.
+
+## Measures for communication and exploitation
+
+The project will adopt an open science approach, ensuring early and wide dissemination of results through open-access publications, preprints, and openly available code and tools. The primary target audience includes researchers in ecology and evidence synthesis, as well as decision-makers in environmental agencies and conservation organisations.
+
+Communication activities will include academic publications, conference presentations, and workshops with stakeholders. The decision-support tool will be developed with usability in mind and will be accompanied by documentation and training materials to facilitate uptake.
+
+# Implementation
+
+## Project manager and project group
+
+The project will be led by a researcher with extensive experience in evidence synthesis, ecological modelling, and methodological development (MJG). The project builds directly on ongoing work in systematic review methods, meta-analysis, and decision support in environmental science.
+
+The project team will combine expertise in evidence synthesis, statistics, and decision science, ensuring the interdisciplinary capacity required to achieve the project objectives. Collaborations with researchers and practitioners will provide additional expertise and ensure relevance to real-world decision-making contexts.
+
+## Project organisation and management
+
+The project will be organised around the five work packages described above, with clear allocation of responsibilities and timelines across a four-year period. The work packages are interdependent, with outputs from empirical analysis informing simulation modelling, which in turn supports the development of decision frameworks and tools.
+
+Regular project meetings will ensure coordination and integration across work packages. The project will make use of existing research infrastructure, including computational resources for simulation and established platforms for code sharing and collaboration.
+
+The overall management structure will ensure that the project remains aligned with its objectives while maintaining flexibility to adapt to new insights and opportunities.
